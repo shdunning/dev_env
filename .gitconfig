@@ -1,8 +1,10 @@
 [user]
-	email = <>
+	email = <> 
 	name = Shaun Dunning
 
 [alias]
     fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
 
     ls="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+    files="!f() { git diff-tree --no-commit-id --name-only -r $1; }; f"
